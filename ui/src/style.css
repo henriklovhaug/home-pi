@@ -10,6 +10,10 @@ body {
     padding-top: 77px;
 }
 
+h1 {
+  color: red;
+}
+
 /* header {
   position: fixed;
   top: 0;
@@ -20,6 +24,7 @@ body {
   background-color: #2196F3;
   color: white;
 }
+
 header h1 {
   float: left;
   font-size: 20px;
