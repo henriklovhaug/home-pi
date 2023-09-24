@@ -9,6 +9,6 @@ fn main() {
 }
 
 #[tauri::command]
-async fn say_hello() -> Result<String, String> {
+fn say_hello() -> Result<String, String> {
   Ok("Hello from Rust!".to_string())
 }
