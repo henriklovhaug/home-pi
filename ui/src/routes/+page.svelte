@@ -1,3 +1,5 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-<p>Test</p>
+<div class="flex flex-row">
+
+<h1 class="text-red-50 underline">Welcome to SvelteKit</h1>
+<p class="text-lime-50">Test</p>
+</div>
