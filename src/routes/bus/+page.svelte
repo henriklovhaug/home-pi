@@ -6,7 +6,9 @@
 
 <a href="/">Go home</a>
 <main class="flex h-full w-full flex-col items-center justify-center">
-	{#await data then bus}
+	{#await data}
+		<h1>LOADING</h1>
+	{:then bus}
 		<!-- promise was fulfilled -->
 		<h1>{bus[0]}</h1>
 		{#each bus[1] as stop}
