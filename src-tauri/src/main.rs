@@ -2,6 +2,7 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 use bus::bus_routes::{Bus, BUS};
+use chrono_tz::Europe::Paris;
 
 mod bus;
 
@@ -22,3 +23,11 @@ fn get_bus(hour: u8) -> Result<(u8, Vec<u8>), String> {
     let bus = BUS.get_or_init(|| Bus::init());
     Ok(bus.get(hour))
 }
+
+#[tauri::command]
+fn get_bus_now() -> Result<(u8, Vec<u8>), String> {
+    let bus = BUS.get_or_init(|| Bus::init());
+    let paris_time = Paris;
+    todo!("get current hour from chrono")
+}
+
