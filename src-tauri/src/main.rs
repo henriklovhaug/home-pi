@@ -2,13 +2,15 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 use bus::bus_routes::{Bus, BUS};
+use chrono::{DateTime, Timelike, Utc};
 use chrono_tz::Europe::Paris;
+use chrono_tz::Tz;
 
 mod bus;
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![say_hello, get_bus])
+        .invoke_handler(tauri::generate_handler![say_hello, get_bus, get_bus_now])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
@@ -27,7 +29,10 @@ fn get_bus(hour: u8) -> Result<(u8, Vec<u8>), String> {
 #[tauri::command]
 fn get_bus_now() -> Result<(u8, Vec<u8>), String> {
     let bus = BUS.get_or_init(|| Bus::init());
-    let paris_time = Paris;
-    todo!("get current hour from chrono")
+    let utc: DateTime<Tz> = Utc::now().with_timezone(&Paris);
+    let hour = utc.hour();
+    Ok(bus.get(
+        hour.try_into()
+            .map_err(|_| "Failed to get time".to_string())?,
+    ))
 }
-
