@@ -39,8 +39,9 @@ pub struct WeatherHour {
 impl WeatherHour {
     pub fn new(hour: String, temperature: f64, rain: f64, cloudcover: i64) -> Self {
         // Parse "2021-06-06T12:00:00"
-        let hour = DateTime::parse_from_str(&hour, "%Y-%m-%dT%H:%M")
-            .map_err(|e| format!("Error parsing date: {}", e)).unwrap()
+        let hour = DateTime::parse_from_rfc3339(&hour)
+            .map_err(|e| format!("Error parsing date: {}", e))
+            .unwrap()
             .with_timezone(&Utc);
         Self {
             hour,

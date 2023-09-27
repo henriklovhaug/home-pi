@@ -25,7 +25,11 @@ pub async fn get_weather_backend() -> Result<Weather, String> {
         &weather_api.hourly.rain,
         &weather_api.hourly.cloudcover
     )
-    .map(|(time, temp, rain, cloud)| WeatherHour::new(time.to_owned(), *temp, *rain, *cloud))
+    .map(|(time, temp, rain, cloud)| {
+        let time = format!("{}:00Z", time);
+        println!("Debug: {}", time);
+        WeatherHour::new(time, *temp, *rain, *cloud)
+    })
     .collect::<Vec<WeatherHour>>();
 
     Ok(Weather::new(
