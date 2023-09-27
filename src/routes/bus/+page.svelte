@@ -8,14 +8,16 @@
 
 <a href="/">Go home</a>
 <main class="flex h-full w-full flex-col items-center justify-center">
-	<h1 class="h-12 w-1/2 rounded-t-md border border-quaternary text-center text-3xl text-quaternary">
+	<h1
+		class="h-12 w-1/2 rounded-t-md border-4 border-quaternary text-center text-3xl text-quaternary"
+	>
 		A
 	</h1>
 	{#await bus_times}
 		<h1>LOADING</h1>
 	{:then bus}
 		<div
-			class="flex w-1/2 flex-col items-center justify-center rounded-b-md border border-quaternary py-4"
+			class="flex w-1/2 flex-col items-center justify-center rounded-b-md border-4 border-quaternary py-4"
 		>
 			{#each bus as bus_time}
 				<h1 class="my-1 text-3xl">
