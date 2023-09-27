@@ -6,11 +6,11 @@ A PI application for a home screen with information you may (or not) need
 
 Make sure you have installed
 
-* Rust
-* Node
-* npm
+- Rust
+- Node
+- npm
 
-Run 
+Run
 
 ```bash
 npm ci
