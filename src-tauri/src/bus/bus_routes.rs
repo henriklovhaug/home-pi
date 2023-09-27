@@ -7,6 +7,12 @@ use std::collections::HashMap;
 use serde::Serialize;
 
 #[derive(Debug, Serialize)]
+pub struct BusTime {
+    hour: u8,
+    minute: u8,
+}
+
+#[derive(Debug, Serialize)]
 pub struct Bus {
     pub hour: HashMap<u8, Vec<u8>>,
 }
@@ -41,5 +47,25 @@ impl Bus {
         } else {
             return (hour, self.hour.get(&hour).unwrap().clone());
         }
+    }
+
+    pub fn get_next_n(&self, hour: u8, minute: u8, n: u8) -> Vec<BusTime> {
+        let (hour, minutes) = self.get(hour);
+        let mut result = Vec::new();
+        for m in minutes {
+            if m > minute {
+                result.push(BusTime { hour, minute: m });
+            }
+        }
+        let mut i = 1;
+        while result.len() < n as usize {
+            let (hour, minutes) = self.get(hour + i);
+            for m in minutes {
+                result.push(BusTime { hour, minute: m });
+            }
+            i += 1;
+        }
+        result.truncate(n as usize);
+        result
     }
 }

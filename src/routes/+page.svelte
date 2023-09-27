@@ -9,10 +9,10 @@
 	};
 </script>
 
-<div class="flex h-full w-full flex-col items-center justify-center">
-	<h1 class="text-tertiary">Welcome to SvelteKit</h1>
-	<p class="text-green-600">Test</p>
-	<a href="/bus">Go to buss</a>
-	<button class="w-3/4 border border-black" on:click={handleClick}>Click me</button>
+<div class="flex h-full w-full flex-col items-center justify-evenly">
+	<a href="/bus" class="text-3xl">Go to buss</a>
+	<button class="w-3/4 rounded border border-quaternary text-quaternary" on:click={handleClick}
+		>Click me</button
+	>
 	<p>{msg}</p>
 </div>
