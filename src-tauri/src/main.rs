@@ -45,9 +45,9 @@ fn get_bus_now() -> Result<(u8, Vec<u8>), String> {
 #[tauri::command]
 fn get_next_n_bus(n: u32) -> Vec<BusTime> {
     let bus = BUS.get_or_init(Bus::init);
-    let utc: DateTime<Tz> = Utc::now().with_timezone(&Paris);
-    let hour = utc.hour() as u8;
-    let minute = utc.minute() as u8;
+    let time = Utc::now().with_timezone(&Paris);
+    let hour = time.hour() as u8;
+    let minute = time.minute() as u8;
     let n = n as u8;
     bus.get_next_n(hour, minute, n)
 }
