@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { BusTime } from "$lib/types";
 	import { invoke } from "@tauri-apps/api";
+	import { onMount } from "svelte";
 
 	const n = 10;
 	let bus_times: Promise<BusTime[]> = invoke("get_next_n_bus", { n: n });

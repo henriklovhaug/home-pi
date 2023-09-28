@@ -6,13 +6,13 @@ export interface BusTime {
 }
 
 export interface Weather {
-  weather: WeatherHour[];
+  hourly: WeatherHour[];
   uv: number;
 }
 
 export interface WeatherHour {
-  hour: Date;
+  hour: string;
   temperature: number;
   rain: number;
-  cloud: number;
+  cloudcover: number;
 }
