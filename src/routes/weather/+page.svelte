@@ -14,12 +14,32 @@
 </script>
 
 <main class="flex h-full w-full flex-col items-center justify-center">
-	<div class="flex h-1/2 w-full flex-row items-center justify-center">
+	<div class="flex h-1/2 w-full flex-row items-center justify-evenly">
 		{#await data}
 			<!-- data is pending -->
 			<h1 class="text-3xl">loading</h1>
 		{:then weather}
-			<h1>{weather.uv}</h1>
+			<section
+				class="mx-2 flex flex-col items-center justify-center rounded-md border-2 bg-secondary p-4"
+			>
+				<div class="flex flex-row items-center justify-center">
+					<h1 class="text-2xl">Time</h1>
+				</div>
+				<div class="flex flex-row items-center justify-center">
+					<h1 class="text-2xl">Temp</h1>
+				</div>
+				<div class="flex flex-row items-center justify-center">
+					<h1 class="text-2xl">Rain</h1>
+				</div>
+				<div class="flex flex-row items-center justify-center">
+					<h1 class="text-2xl">Cloud</h1>
+				</div>
+			</section>
+
+			<div class="flex flex-col items-center rounded-md border bg-secondary p-3">
+				<h1 class="text-2xl">UV</h1>
+				<h1 class="text-3xl">{weather.uv}</h1>
+			</div>
 		{:catch error}
 			<div class="text-quaternary">{error}</div>
 			<!-- data was rejected -->

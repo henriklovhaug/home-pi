@@ -8,7 +8,9 @@
 	$: hour_field = hour.slice(11, 13);
 </script>
 
-<section class="mx-2 flex flex-col items-center justify-center rounded-md border-2 p-2">
+<section
+	class="mx-2 flex flex-col items-center justify-center rounded-md border-2 bg-secondary p-2"
+>
 	<div class="flex flex-row items-center justify-center">
 		<h1 class="text-4xl">kl. {hour_field}</h1>
 	</div>
