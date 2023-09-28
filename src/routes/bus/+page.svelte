@@ -1,13 +1,12 @@
 <script lang="ts">
 	import type { BusTime } from "$lib/types";
 	import { invoke } from "@tauri-apps/api";
-	import { onMount } from "svelte";
 
 	const n = 10;
 	let bus_times: Promise<BusTime[]> = invoke("get_next_n_bus", { n: n });
 </script>
 
-<a href="/">Go home</a>
+<!-- <a href="/">Go home</a> -->
 <main class="flex h-full w-full flex-col items-center justify-center">
 	<h1
 		class="h-12 w-1/2 rounded-t-md border-4 border-quaternary text-center text-3xl text-quaternary"
