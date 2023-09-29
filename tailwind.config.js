@@ -7,9 +7,9 @@ export default {
 				primary: "#1a1a1a",
 				secondary: "#222",
 				tertiary: "#AED2FF",
-				quaternary: "#E4F1FF"
-			}
-		}
+				quaternary: "#E4F1FF",
+			},
+		},
 	},
-	plugins: []
+	plugins: [],
 };
