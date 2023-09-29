@@ -5,16 +5,16 @@
 	import { goto } from "$app/navigation";
 
 	const pages = [
-		{ name: "Home", path: "/" },
-		{ name: "About", path: "/bus" }
+		// { name: "Home", path: "/" },
+		{ name: "About", path: "/bus" },
+		{ name: "Weahter", path: "/weather" }
 	];
 
-  let index = 0;
+	let index = 0;
 
 	onMount(() => {
 		setInterval(() => {
-			// goto(pages[Math.floor(Math.random() * pages.length)].path);
-      goto(pages[index++ % pages.length].path);
+			goto(pages[index++ % pages.length].path);
 		}, 10_000);
 	});
 </script>
