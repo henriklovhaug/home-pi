@@ -13,10 +13,10 @@
 	let index = 0;
 
 	onMount(() => {
-		setInterval(() => {
-			// goto(pages[Math.floor(Math.random() * pages.length)].path);
-			goto(pages[index++ % pages.length].path);
-		}, 10_000);
+		// setInterval(() => {
+		// 	// goto(pages[Math.floor(Math.random() * pages.length)].path);
+		// 	goto(pages[index++ % pages.length].path);
+		// }, 10_000);
 	});
 </script>
 
